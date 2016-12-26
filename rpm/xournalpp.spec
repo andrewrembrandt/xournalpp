@@ -1,18 +1,14 @@
-#python setup
-%global python3_sitelib  %(%{__python3} -c "from distutils.sysconfig import get_python_lib; print(get_python_lib())")
-%global python3_sitearch %(%{__python3} -c "from distutils.sysconfig import get_python_lib; print(get_python_lib(1))")
-
 Name:      xournalpp
 Version:   1.0.1pre
 Release:   1%{?dist}
-License:   GPL-2.0
+License:   GPLv2
 Summary:   Notetaking software designed around a tablet.
 Url:       https://github.com/xournalpp/xournalpp
 Group:     Applications/Productivity
 Source:    %{name}-%{version}.zip
 BuildRequires: cmake libglade2-devel texlive-scheme-basic texlive-dvipng glibmm24-devel gtk2-devel gtk+-devel
-BuildRequires: boost-devel poppler-glib-devel
-Requires:  libglade2 texlive-scheme-basic texlive-dvipng glibmm24 gtk2 gtk+ boost poppler-glib
+BuildRequires: boost-devel poppler-glib-devel desktop-file-utils ImageMagick
+Requires:  libglade2 texlive-scheme-basic texlive-dvipng glibmm24 gtk2 gtk+ boost poppler-glib poppler-utils
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 Obsoletes: xournal
 
